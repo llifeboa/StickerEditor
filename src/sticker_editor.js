@@ -173,8 +173,11 @@ function StickerEditor() {
 		}
 
 		window.addEventListener('keydown', e => {
-			if (e.keyCode == 27) {
+			if (e.keyCode == 8) {
 				selectedSticker.selected = false;
+				stickers = stickers.filter(item => {
+					return !(item === selectedSticker);
+				});
 				selectedSticker = null;
 			}
 		});

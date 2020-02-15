@@ -5,12 +5,26 @@ canvas.width = 1000;
 const backImage = document.querySelector('#background');
 const stickerImage = document.querySelector('#sticker');
 
+
+const video = document.querySelector('video');
+
+navigator.getUserMedia(
+	{video: true},
+	(stream) => {
+		video.srcObject = stream;
+		video.play();
+	},
+	(err) => {
+		console.log(err);
+	}
+);
+
 const stickerEditor = StickerEditor()({
 	canv: canvas,
 	boundingColor: 'rgba(255, 255, 0, 1)',
 	boundingWidth: 2,
-	rotateSpeed: 0.1,
-	scaleSpeed: 2,
+	rotateSpeed: 0.2,
+	scaleSpeed: 3,
 });
 
 const sticks = [
@@ -47,7 +61,7 @@ const sticks = [
 for (sticker of sticks) stickerEditor.addStiker(sticker);
 
 function render() {
-	stickerEditor.drawBackground(backImage);
+	stickerEditor.drawBackground(video);
 	stickerEditor.drawStickers();
 	requestAnimationFrame(render, canvas);
 }
