@@ -19,7 +19,7 @@ navigator.getUserMedia(
 	}
 );
 
-const stickerEditor = StickerEditor()({
+const stickerEditor = StickerEditor({
 	canv: canvas,
 	boundingColor: 'rgba(255, 255, 0, 1)',
 	boundingWidth: 2,

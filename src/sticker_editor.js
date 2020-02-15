@@ -1,4 +1,10 @@
-function StickerEditor() {
+function StickerEditor({
+		canv,
+		boundingColor,
+		boundingWidth,
+		rotateSpeed,
+		scaleSpeed,
+	}) {
 	let canvas;
 	let canvasRect;
 	let ctx;
@@ -6,13 +12,7 @@ function StickerEditor() {
 	let selectedSticker = null;
 	let rightMousePress = false;
 
-	return function({
-		canv,
-		boundingColor,
-		boundingWidth,
-		rotateSpeed,
-		scaleSpeed,
-	}) {
+	return (function() {
 		canvas = canv;
 		ctx = canvas.getContext('2d');
 		canvasRect = canvas.getBoundingClientRect();
@@ -200,5 +200,5 @@ function StickerEditor() {
 				return stickers.reverse();
 			}
 		};
-	};
+	})();
 }
