@@ -193,6 +193,9 @@ function StickerEditor() {
 				for (let i = stickers.length - 1; i >= 0; i--)
 					if (stickers[i]) drawSticker(stickers[i]);
 			},
+			getStickers(){
+				return stickers.reverse();
+			}
 		};
 	};
 }
